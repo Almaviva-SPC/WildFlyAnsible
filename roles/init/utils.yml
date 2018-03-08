@@ -1,0 +1,5 @@
+- name: installazione utils
+  remote_user: root
+  tasks:
+    - name: installazione utils
+      yum: name=httpd,wget,httpd,bash-completion,telnet,lvm2,tree,bind-utils state=present
