@@ -1,7 +1,3 @@
-- hosts: ansible-wildfly
-  become: true
-  roles:
-    - ansible-wildfly
 #----------------------------------------------------------
 - name: configura hostname
   hosts: web
