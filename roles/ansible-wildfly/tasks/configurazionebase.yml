@@ -1,7 +1,4 @@
-- name: configura hostname
-  remote_user: root
-  tasks:
-  - hostname: name=ansible2
+- name: IPTABLES
   tasks:
     - name: Aprire le corrette porte per l'IPTables
       lineinfile: dest=/etc/sysconfig/iptables-config
@@ -16,16 +13,14 @@
   handlers:
       - name: restart iptables
         action: systemctl name=iptables state=restarted
-- name: disable SELinux
-  tasks:
-    - name: disable SELinux
-      selinux: state=permissive policy=targeted
-    - name: modificare file config selinux
-      replace:
-        path: /etc/selinux/config
-        regexp: enforcing
-        replace: disabled
+- name: Disable SELINUX
+
+  selinux:
+    policy: targeted
+    state: permissive
+
+# Disable SELinux
+- selinux:
+    state: disabled
 - name: stop firewalld
-  tasks:
-    - name: stop firewalld
-      service: name=firewalld state=stopped enabled=no
+  service: name=firewalld state=stopped enabled=no
