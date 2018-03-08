@@ -1,0 +1,50 @@
+- hosts: ansible-wildfly
+  become: true
+  roles:
+    - ansible-wildfly
+#----------------------------------------------------------
+- name: configura hostname
+  hosts: web
+  remote_user: root
+  tasks:
+  - hostname: name=ansible2
+#----------------------------------------------------------
+- hosts: web
+  tasks:
+    - name: Aprire le corrette porte per l'IPTables
+      lineinfile: dest=/etc/sysconfig/iptables-config
+                  regexp="^-A INPUT -m state --state NEW -m {{item.protocol}} -p {{item.protocol}} --dport {{item.port}} -j ACCEPT$"
+                  line="-A INPUT -m state --state NEW -m {{item.protocol}} -p {{item.protocol}} --dport {{item.port}} -j ACCEPT"
+                  insertafter="^:OUTPUT ACCEPT \[\d*:\d*\]$"
+      with_items:
+        - { protocol: tcp, port: 80 }
+        - { protocol: tcp, port: 22 }
+      notify:
+        - restart iptables
+  handlers:
+      - name: restart iptables
+        action: systemctl name=iptables state=restarted
+#----------------------------------------------------------
+- name: installazione utils
+  remote_user: root
+  hosts: web
+  tasks:
+    - name: installazione utils
+      yum: name=httpd,wget,httpd,bash-completion,telnet,lvm2,tree,bind-utils state=present
+#----------------------------------------------------------
+- name: disable SELinux
+  hosts: web
+  tasks:
+    - name: disable SELinux
+      selinux: state=permissive policy=targeted
+    - name: modificare file config selinux
+      replace:
+        path: /etc/selinux/config
+        regexp: enforcing
+        replace: disabled
+#----------------------------------------------------------
+- name: stop firewalld
+  hosts: web
+  tasks:
+    - name: stop firewalld
+      service: name=firewalld state=stopped enabled=no
