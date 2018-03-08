@@ -1,7 +1,4 @@
-- name: configura hostname
-  remote_user: root
-  tasks:
-  - hostname: name=ansible2
+- name: IPTABLES
   tasks:
     - name: Aprire le corrette porte per l'IPTables
       lineinfile: dest=/etc/sysconfig/iptables-config
