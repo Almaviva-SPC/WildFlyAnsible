@@ -1,8 +1,3 @@
-- hosts: master
-  become: true
-  roles:
-    - ansible-wildfly
-    - init
 - hosts: slave
   become: true
   roles:
