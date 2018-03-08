@@ -1,0 +1,3 @@
+[ansible-wildfly]
+<ip_nodo> 
+<ip_nodo> 
