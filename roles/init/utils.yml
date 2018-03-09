@@ -1,3 +1,0 @@
-- name: installazione utils
-  yum: name=httpd,wget,httpd,bash-completion,telnet,lvm2,tree,bind-utils state=present
- 
