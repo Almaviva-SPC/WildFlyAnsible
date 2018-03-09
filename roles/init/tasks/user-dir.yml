@@ -1,0 +1,11 @@
+- name: Creazione account wildfly
+    user:
+     name: wildfly
+     state: present
+     shell: /bin/bash
+     system: yes
+- file:
+    path: /opt/wildfly-11.0.0.Final
+    owner: wildfly
+    group: wildfly
+    recurse: yes
