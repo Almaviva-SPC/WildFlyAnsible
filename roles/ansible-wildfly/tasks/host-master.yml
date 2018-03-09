@@ -1,6 +1,6 @@
 - name: Configurazione host-master.xml
   template:
     src: host-master.file
-    dest: /opt/wildfly-10.0.0.Final/domain/configuration/host-master.xml
+    dest: /opt/wildfly-11.0.0.Final/domain/configuration/host-master.xml
     owner: wildfly
     group: wildfly
