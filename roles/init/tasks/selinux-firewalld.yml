@@ -1,10 +1,7 @@
 - name: Disable SELINUX
-
   selinux:
     policy: targeted
     state: permissive
-
-# Disable SELinux
 - selinux:
     state: disabled
 - name: stop firewalld
