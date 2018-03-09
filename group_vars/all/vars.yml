@@ -1,2 +1,1 @@
 NOMEMASTER: "lezabbix"
-item: groups['master']

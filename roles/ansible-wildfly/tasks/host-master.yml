@@ -8,5 +8,6 @@
   lineinfile:
     line: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
     path: /opt/wildfly-11.0.0.Final/domain/configuration/host-master.xml
+    replace: "IPMASTER"
   with_items:
     - "{{ groups['master'] }}"
