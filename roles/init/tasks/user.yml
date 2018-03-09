@@ -1,0 +1,4 @@
+- user:
+    name: wildly
+    shell: /bin/bash
+    append: yes
