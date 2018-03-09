@@ -1,4 +1,4 @@
 - user:
-    name: wildly
+    name: wildfly
     shell: /bin/bash
     append: yes
