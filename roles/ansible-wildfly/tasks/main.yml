@@ -1,1 +1,2 @@
-
+- import_tasks: jdk.yml
+- import_tasks: wgetwildfly11.yml
