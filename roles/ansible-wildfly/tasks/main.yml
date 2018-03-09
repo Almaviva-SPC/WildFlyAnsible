@@ -1,1 +1,1 @@
-- import_tasks: configurazionebase.yml
+- import_tasks: selinux-firewalld.yml
