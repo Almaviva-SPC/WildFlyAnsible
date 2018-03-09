@@ -2,3 +2,7 @@
   get_url:
     url:  http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.zip
     dest: /opt
+- name: Unzip archivio Wildfly
+   win_unzip:
+     src: /opt/wildfly-11.0.0.Final.zip
+     dest: /opt
