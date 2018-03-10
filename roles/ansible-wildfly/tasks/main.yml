@@ -1,3 +1,2 @@
 - import_tasks: jdk.yml
 - import_tasks: wgetwildfly11.yml
-- import_tasks: host-master.yml
