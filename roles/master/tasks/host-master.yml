@@ -37,5 +37,12 @@
     dest: /etc/systemd/system/wildfly.service
     owner: wildfly
     group: wildfly
+#file initd versione 10
+- name: init.d
+  template:
+    src: init.d
+    dest: /opt/wildfly-11.0.0.Final/bin/init.d/wildfly-init-redhat.sh
+    owner: wildfly
+    group: wildfly
 - name: reload daemon systemctl
   systemd: daemon_reload=yes

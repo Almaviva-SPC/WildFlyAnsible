@@ -13,5 +13,3 @@ LimitNOFILE=102642
 
 [Install]
 WantedBy=multi-user.target
-
-systemctl daemon-reload
