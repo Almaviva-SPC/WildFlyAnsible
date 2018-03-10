@@ -1,12 +1,12 @@
-#- name: Download pacchetto wildfly versione 11
-#  get_url:
-#    url:  http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.zip
-#    dest: /opt
-#- name: Unzip archivio Wildfly
-#  unarchive:
-#    src: /opt/wildfly-11.0.0.Final.zip
-#    dest: /opt
-#    remote_src: yes
+- name: Download pacchetto wildfly versione 11
+  get_url:
+    url:  http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.zip
+    dest: /opt
+- name: Unzip archivio Wildfly
+  unarchive:
+    src: /opt/wildfly-11.0.0.Final.zip
+    dest: /opt
+    remote_src: yes
 - file:
     path: /opt/wildfly-11.0.0.Final
     owner: wildfly

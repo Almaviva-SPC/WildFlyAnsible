@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 
-<host xmlns="urn:jboss:domain:4.0" name="{{ NOMEMASTER }}">
+<host xmlns="urn:jboss:domain:5.0" name="{{ NOMEMASTER }}">
     <extensions>
         <extension module="org.jboss.as.jmx"/>
     </extensions>
@@ -58,7 +58,7 @@
     </domain-controller>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:"IPMASTER"/>
+            <inet-address value="${jboss.bind.address.management:IPMASTER"}/>
         </interface>
     </interfaces>
     <jvms>
