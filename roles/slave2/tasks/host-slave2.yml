@@ -16,3 +16,19 @@
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:
     - "{{ groups['master'] }}"
+#widlfly.conf
+- name: wildfly.conf
+  template:
+    src: wildfly-slave2.conf
+    dest: /etc/default/wildfly.conf
+    owner: wildfly
+    group: wildfly
+#wildfly.service
+- name: wildfly service
+  template:
+    src: wildfly.service
+    dest: /etc/systemd/system/wildfly.service
+    owner: wildfly
+    group: wildfly
+- name: reload daemon systemctl
+  systemd: daemon_reload=yes

@@ -12,3 +12,5 @@
     owner: wildfly
     group: wildfly
     recurse: yes
+- name: Spostare init.d in bin
+  command: mv /opt/wildfly-11.0.0.Final/docs/contrib/scripts/init.d /opt/wildfly-11.0.0.Final/bin
