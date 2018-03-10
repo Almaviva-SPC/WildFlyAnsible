@@ -1,1 +1,3 @@
 NOMEMASTER: "lezabbix"
+NOMESLAVE: "ansible2"
+NOMESLAVE2: "ansible3"
