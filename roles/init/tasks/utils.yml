@@ -8,3 +8,4 @@
     - lvm2
     - tree
     - bind-utils
+    - unzip
