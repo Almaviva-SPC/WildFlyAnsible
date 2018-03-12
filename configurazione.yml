@@ -10,9 +10,3 @@
     - init
     - ansible-wildfly
     - slave
-- hosts: slave2
-  become: true
-  roles:
-    - init
-    - ansible-wildfly
-    - slave2

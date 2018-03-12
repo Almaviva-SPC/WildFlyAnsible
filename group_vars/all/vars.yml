@@ -1,3 +1,2 @@
-NOMEMASTER: "lezabbix"
-NOMESLAVE: "ansible2"
-NOMESLAVE2: "ansible3"
+NOMEMASTER: "lesansardegnaapp01"
+NOMESLAVE: "lesansardegnaapp02"
