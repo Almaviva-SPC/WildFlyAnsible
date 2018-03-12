@@ -16,6 +16,9 @@
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:
     - "{{ groups['master'] }}"
+#Secret
+- name: "Sostituzione variabile SECRET con il secret principale"
+    command: sed -i -e "/SECRET/r /opt/WildFlyAnsible/roles/slave/templates/secret1.txt" -e "s///" /opt/wildfly-11.0.0.Final/domain/configuration/host-slave.xml;
 #widlfly.conf
 - name: wildfly.conf
   template:
