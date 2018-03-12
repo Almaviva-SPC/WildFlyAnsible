@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 
-<host xmlns="urn:jboss:domain:5.0" name="{{ NOMEMASTER }}">
+<host xmlns="urn:jboss:domain:5.0" name="{{ ansible_hostname }}">
     <extensions>
         <extension module="org.jboss.as.jmx"/>
     </extensions>

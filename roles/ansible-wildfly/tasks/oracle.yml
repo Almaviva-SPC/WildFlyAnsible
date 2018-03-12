@@ -1,4 +1,4 @@
-#- name: ORACLE
+#- name: oracle
 #  yum: state=present name="{{ item }}"
 #  with_items:
-#    - java-1.8.0-openjdk.x86_64
+#    - *
