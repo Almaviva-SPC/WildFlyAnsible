@@ -28,12 +28,15 @@
   template:
     src: secret.file
     dest: /opt/wildfly-11.0.0.Final/bin/secret.sh
+    mode: 0755
     owner: wildfly
     group: wildfly
 #./add-user.sh
 - name: Avvio add-user.sh
   command: /opt/wildfly-11.0.0.Final/bin/secret.sh
   register: wildfly_secret
+  - set_fact:
+    wildfly_secret_set: {{wildfly_secret}}
 #widlfly.conf
 - name: wildfly config
   template:
