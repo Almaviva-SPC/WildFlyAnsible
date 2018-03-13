@@ -1,0 +1,2 @@
+- name: Spostare init.d in bin
+  command: cp -r /opt/wildfly-11.0.0.Final/docs/contrib/scripts/init.d /opt/wildfly-11.0.0.Final/bin/init.d

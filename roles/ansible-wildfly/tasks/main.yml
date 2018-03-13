@@ -1,2 +1,6 @@
 - import_tasks: wgetwildfly11.yml
 #- import_tasks: oracle.yml
+- import_tasks: chownwildfly.yml
+- import_tasks: moveinitd.yml
+- import_tasks: unzipwildfly.yml
+- import_tasks: wildfly11-zip.yml

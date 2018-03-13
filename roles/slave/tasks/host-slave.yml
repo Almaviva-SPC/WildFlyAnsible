@@ -4,6 +4,12 @@
     dest: /opt/wildfly-11.0.0.Final/domain/configuration/host-slave.xml
     owner: wildfly
     group: wildfly
+- replace:
+    path: /opt/wildfly-11.0.0.Final/domain/configuration/host-master.xml
+    regexp: "masterip"
+    replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
+  with_items:
+    - "{{ groups['master'] }}"
 #widlfly.conf
 - name: wildfly.conf
   template:

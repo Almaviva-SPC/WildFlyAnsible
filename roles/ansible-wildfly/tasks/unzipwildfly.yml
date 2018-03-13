@@ -1,0 +1,5 @@
+- name: Unzip archivio Wildfly
+  unarchive:
+    src: /opt/wildfly-11.0.0.Final.zip
+    dest: /opt
+    remote_src: yes
