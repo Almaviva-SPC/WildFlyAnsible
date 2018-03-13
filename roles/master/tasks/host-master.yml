@@ -23,12 +23,17 @@
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:
     - "{{ groups['master'] }}"
+#secret.sh
+- name: Creazione sh secret
+  template:
+    src: secret.file
+    dest: /opt/wildfly-11.0.0.Final/bin/secret.sh
+    owner: wildfly
+    group: wildfly
 #./add-user.sh
-- name: "Avvio add-user.sh"
-    command: /opt/wildfly-11.0.0.Final/bin/add-user.sh -a admin almaviva00 -ds >> /opt/WildFlyAnsible/roles/slave/templates/secret.txt
-#Copia secret in un ulteriore file
-- name: "Creazione template secondario con solo secret"
-    command: sed -n -e 's/^.*definition //p' /opt/WildFlyAnsible/roles/slave/templates/secret.txt >> /opt/WildFlyAnsible/roles/slave/templates/secret1.txt
+- name: Avvio add-user.sh
+  command: /opt/wildfly-11.0.0.Final/bin/secret.sh
+  register: wildfly_secret
 #widlfly.conf
 - name: wildfly config
   template:
