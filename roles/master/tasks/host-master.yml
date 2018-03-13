@@ -31,8 +31,11 @@
     mode: 0755
     owner: wildfly
     group: wildfly
+#./add-user.sh utente admin
+- name: Avvio add-user.sh per utente admin
+  command: /opt/wildfly-11.0.0.Final/bin/add-user.sh -u {{ ACCOUNT }} -p {{ PASSWORD }} -r ManagementRealm
 #./add-user.sh
-- name: Avvio add-user.sh
+- name: Avvio add-user.sh per utente normale
   command: /opt/wildfly-11.0.0.Final/bin/secret.sh
   register: wildfly_secret
 
