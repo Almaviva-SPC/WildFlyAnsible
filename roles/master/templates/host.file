@@ -68,10 +68,10 @@
     </domain-controller>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:IPMASTER}"/>
+            <inet-address value="${jboss.bind.address.management:{{hostvars['master']['ansible_default_ipv4']['address']}}}}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:IPMASTER}"/>
+            <inet-address value="${jboss.bind.address:{{hostvars['master']['ansible_default_ipv4']['address']}}}}"/>
         </interface>
     </interfaces>
     <jvms>

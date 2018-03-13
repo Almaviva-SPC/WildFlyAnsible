@@ -1,5 +1,5 @@
 [master]
-10.198.65.85
+master
 
 [slave]
-10.198.65.86
+ansible2

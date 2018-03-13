@@ -10,7 +10,7 @@
         <security-realms>
             <security-realm name="ManagementRealm">
                 <server-identities>
-                    "{{ hostvars['master']['wildfly_secret_set'] }}"
+                    {{ hostvars['master']['wildfly_secret_set'] }}
                 </server-identities>
                 <authentication>
                     <local default-user="$local" skip-group-loading="true"/>
@@ -63,7 +63,7 @@
     <domain-controller>
         <remote security-realm="ManagementRealm" username="admin">
             <discovery-options>
-                <static-discovery name="primary" protocol="${jboss.domain.master.protocol:remote}" host="${jboss.domain.master.address:IPMASTER}" port="${jboss.domain.master.port:9999}"/>
+                <static-discovery name="primary" protocol="${jboss.domain.master.protocol:remote}" host="${jboss.domain.master.address:{{hostvars[item]['ansible_default_ipv4']['address']}}}}" port="${jboss.domain.master.port:9999}"/>
             </discovery-options>
         </remote>
     </domain-controller>

@@ -36,8 +36,11 @@
   command: /opt/wildfly-11.0.0.Final/bin/secret.sh
   register: wildfly_secret
 
+- debug:
+  var: wildfly_secret
+
 - set_fact:
-    wildfly_secret_set: "{{wildfly_secret.stdout_lines}}"
+    wildfly_secret_set: "{{wildfly_secret.stdout}}"
 #widlfly.conf
 - name: wildfly config
   template:
