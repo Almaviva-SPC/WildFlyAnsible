@@ -58,7 +58,7 @@
     </domain-controller>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:{{hostvars['master']['ansible_default_ipv4']['address']}}}"/>
+            <inet-address value="${jboss.bind.address.management:{{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}}}"/>
         </interface>
     </interfaces>
     <jvms>
