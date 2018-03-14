@@ -3,8 +3,6 @@
     name: wildfly
     enabled: yes
     state: started
-  register: wildflystart
 
 - name: registrazione drive domain oracle
   command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full-ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
-  when: wildflystart|succeeded
