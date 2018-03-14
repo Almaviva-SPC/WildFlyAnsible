@@ -1,0 +1,3 @@
+- name: Download pacchetto ojdbc8.jar
+    url:  http://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html
+    dest: /opt
