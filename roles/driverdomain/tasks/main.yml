@@ -1,0 +1,4 @@
+#Registrazione driver domain postgresql
+- import_tasks: registrazionedriver.yml
+#Registrazione driver domain JDM oracle
+- import_tasks: registrazionedriver1.yml
