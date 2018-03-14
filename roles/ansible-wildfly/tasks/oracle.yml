@@ -1,4 +1,0 @@
-#- name: oracle
-#  yum: state=present name="{{ item }}"
-#  with_items:
-#    - *

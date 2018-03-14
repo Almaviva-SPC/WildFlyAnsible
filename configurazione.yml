@@ -4,13 +4,13 @@
     - oracle-java
     - init
     - ansible-wildfly
-    - driver
     - master
+    - driver
 - hosts: slave
   become: true
   roles:
     - oracle-java
     - init
     - ansible-wildfly
-    - driver
     - slave
+    - driver

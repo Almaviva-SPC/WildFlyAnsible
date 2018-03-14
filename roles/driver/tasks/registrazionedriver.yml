@@ -1,9 +1,18 @@
-- name: Installazione driver postgresql
-  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller=[item] --command="/profile=full-ha/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=oracle,driver-module-name=postgresql-42.2.1.jdbc)"
-  with_items:
-    - "{{ groups['master'] }}"
+- name: Avvio wildfly automatico
+  service:
+    name: wildfly
+    enabled: yes
+    state: started
+  register: wildflystart
 
-- name: Installazione driver oracle
-  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller=[item] --command="/profile=full-ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
-  with_items:
-    - "{{ groups['master'] }}"
+- name: registrazione drive domain postgresql
+  hosts: master
+  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full-ha/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=oracle,driver-module-name=postgresql-42.2.1.jdbc)"
+  when: postgresql|succeeded
+  when: wildflystart|succeeded
+
+- name: registrazione drive domain oracle
+  hosts: master
+  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full-ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
+  when: ojdbc|succeeded
+  when: wildflystart|succeeded
