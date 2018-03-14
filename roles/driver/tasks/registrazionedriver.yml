@@ -1,5 +1,9 @@
 - name: Installazione driver postgresql
-  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh -c [item] --command="/profile=full-ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
-  user: wildfly
+  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller=[item] --command="/profile=full-ha/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=oracle,driver-module-name=postgresql-42.2.1.jdbc)"
+  with_items:
+    - "{{ groups['master'] }}"
+
+- name: Installazione driver oracle
+  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --connect --controller=[item] --command="/profile=full-ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
   with_items:
     - "{{ groups['master'] }}"

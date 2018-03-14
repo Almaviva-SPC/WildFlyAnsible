@@ -2,3 +2,4 @@
 - import_tasks: postgresql.yml
 - import_tasks: installoracle.yml
 - import_tasks: installpostgresql.yml
+- import_tasks: registrazionedriver.yml
