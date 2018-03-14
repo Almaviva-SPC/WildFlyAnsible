@@ -2,3 +2,5 @@
   get_url:
     url:  https://jdbc.postgresql.org/download/postgresql-42.2.1.jar
     dest: /opt
+- name: Spostare file postgresql-42.2.1.jar nella cartella di wildfly
+  command: cp -r /opt/postgresql-42.2.1.jar /opt/wildfly-11.0.0.Final/
