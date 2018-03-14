@@ -35,4 +35,4 @@
   become: yes
 
 - name: in case there were changes, check host environment again
-  include_tasks: ../check_environment.yml
+  include: ../check_environment.yml
