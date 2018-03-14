@@ -9,4 +9,4 @@
 #Registrazione driver domain postgresql
 - import_tasks: registrazionedriver.yml
 #Riavvio macchina
-- import_tasks: riavviomacchina.yml
+#- import_tasks: riavviomacchina.yml

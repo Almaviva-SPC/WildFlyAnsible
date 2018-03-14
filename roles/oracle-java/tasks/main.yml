@@ -5,18 +5,18 @@
 #
 
 - name: check host environment
-  include: check_environment.yml
+  include_tasks: check_environment.yml
 
-## include OS family specific variables
+## include_tasks OS family specific variables
 
-- name: include OS family/distribution specific variables
-  include_vars: "{{ item }}"
+- name: include_tasks OS family/distribution specific variables
+  include_tasks_vars: "{{ item }}"
   with_first_found:
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}-{{ ansible_distribution | lower }}.yml"
     - "{{ role_path }}/defaults/{{ ansible_os_family | lower }}.yml"
   tags: installation
 
-- include: debug.yml
+- include_tasks: debug.yml
   when: debug | default(false)
   tags: debug
 
@@ -25,16 +25,16 @@
     msg: "The operating system ({{ ansible_os_family }}) of the target machine ({{ inventory_hostname }}) is not currently supported."
   when: oracle_java_os_supported is not defined or not oracle_java_os_supported
 
-## include OS family specific task file
+## include_tasks OS family specific task file
 
-- name: if darwin/macosx, include distribution specific task file
-  include: "darwin/macosx.yml"
+- name: if darwin/macosx, include_tasks distribution specific task file
+  include_tasks: "darwin/macosx.yml"
   when: ansible_os_family | lower == 'darwin' and ansible_distribution | lower == 'macosx'
 
-- name: if debian, include family specific task file
-  include: "debian/main.yml"
+- name: if debian, include_tasks family specific task file
+  include_tasks: "debian/main.yml"
   when: ansible_os_family | lower == 'debian'
 
-- name: if redhat, include family specific task file
-  include: "redhat/main.yml"
+- name: if redhat, include_tasks family specific task file
+  include_tasks: "redhat/main.yml"
   when: ansible_os_family | lower == 'redhat'
