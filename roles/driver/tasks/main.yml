@@ -1,5 +1,12 @@
+#Installazione JVM Oracle
 - import_tasks: JVM.yml
-- import_tasks: postgresql.yml
 - import_tasks: installoracle.yml
+#Registrazione driver domain JDM oracle
+- import_tasks: registrazionedriver1.yml
+#Installazione postgresql
+- import_tasks: postgresql.yml
 - import_tasks: installpostgresql.yml
+#Registrazione driver domain postgresql
 - import_tasks: registrazionedriver.yml
+#Riavvio macchina
+- import_tasks: riavviomacchina.yml
