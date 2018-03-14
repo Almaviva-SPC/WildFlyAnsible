@@ -9,7 +9,7 @@
 - hosts: slave
   become: true
   roles:
-    -driver
+    - driver
     - oracle-java
     - init
     - ansible-wildfly
