@@ -4,5 +4,5 @@
     dest: /opt
   register: ojdbc
 - name: Spostare file obdbc8.jar nella cartella di wildfly
-  command: cp -r /opt/ojdbc8.jar /opt/wildfly-11.0.0.Final/
+  command: mv /opt/ojdbc8.jar /opt/wildfly-11.0.0.Final/
   when: ojdbc|succeeded
