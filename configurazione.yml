@@ -6,7 +6,6 @@
     - ansible-wildfly
     - master
     - driver
-    - driverdomain
 - hosts: slave
   become: true
   roles:
