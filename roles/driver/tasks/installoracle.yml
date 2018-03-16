@@ -1,0 +1,2 @@
+- name: Installazione driver oracle
+  command: /opt/wildfly-11.0.0.Final/bin/jboss-cli.sh --command="module add --name=oracle.jdbc --resources=/opt/wildfly-11.0.0.Final/ojdbc8.jar --dependencies=javax.api,javax.transaction.api"

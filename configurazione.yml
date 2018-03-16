@@ -6,7 +6,6 @@
     - ansible-wildfly
     - master
     - driver
-    - driverdomain
 - hosts: slave
   become: true
   roles:
@@ -15,3 +14,4 @@
     - ansible-wildfly
     - slave
     - driver
+    - oracle-java

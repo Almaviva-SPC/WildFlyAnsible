@@ -1,3 +1,5 @@
-[ansible-wildfly]
-<ip_nodo> 
-<ip_nodo> 
+[master]
+master
+
+[slave]
+ansible2
