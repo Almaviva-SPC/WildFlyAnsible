@@ -14,4 +14,3 @@
     - ansible-wildfly
     - slave
     - driver
-    - oracle-java
