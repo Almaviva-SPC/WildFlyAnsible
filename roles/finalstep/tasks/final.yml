@@ -1,0 +1,11 @@
+- name: enable service Wildfly
+  systemd:
+    name: wildfly.service
+    enabled: yes
+    masked: no
+
+- name: Make sure Wildfly service is not running
+  systemd: state=stopped name=wildfly.service
+
+- name: Make sure Wildfly service is running
+  systemd: state=started name=wildfly.service
