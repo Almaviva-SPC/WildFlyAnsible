@@ -1,1 +1,2 @@
+- import_tasks: serviceWildfly.yml
 - import_tasks: config-domain.yml
