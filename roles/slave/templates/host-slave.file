@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
-
 <host name="{{ ansible_hostname }}" xmlns="urn:jboss:domain:5.0">
     <extensions>
         <extension module="org.jboss.as.jmx"/>
@@ -61,7 +60,7 @@
         </management-interfaces>
     </management>
     <domain-controller>
-        <remote security-realm="ManagementRealm" username="{{ACCOUNT}}">
+        <remote security-realm="ManagementRealm" username="{{syncuser}}">
             <discovery-options>
                 <static-discovery name="primary" protocol="${jboss.domain.master.protocol:remote}" host="${jboss.domain.master.address:masterip}" port="${jboss.domain.master.port:9999}"/>
             </discovery-options>
