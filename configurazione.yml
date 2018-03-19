@@ -15,3 +15,7 @@
     - ansible-wildfly
     - slave
     - driver
+- hosts: master,slave
+  become: ture
+  roles:
+    - finalstep
