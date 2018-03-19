@@ -4,7 +4,7 @@
     enabled: yes
     masked: no
 
--name: Make sure Wildfly service is not running
+- name: Make sure Wildfly service is not running
   systemd: state=stopped name=wildfly.service
 
 - name: Make sure Wildfly service is running
