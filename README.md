@@ -12,15 +12,9 @@ Supported Opereting system Centos 7.x 64 bit
 
 This is the list ov variables inside group_vars valid for all host
 #######
-
 ACCOUNT: admin
-
 PASSWORD: test
-
 master_node: masternode
-
 syncuser: syncuser ###User for remote node
-
 syncpassword: test ###Password for syncuser
-
 #######
