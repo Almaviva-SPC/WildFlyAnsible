@@ -19,5 +19,5 @@ syncuser: syncuser ###User for remote node
 syncpassword: test ###Password for syncuser
 
 
-N.B. Per cambiare versione di Wildfly impostare il nome del pacchetto da scaricare in  WildFlyAnsible/roles/ansible-wildfly/tasks/wildfly11-zip.yml
+N.B. Per cambiare versione di Wildfly impostare il nome del pacchetto da scaricare nelle group_vars
 
