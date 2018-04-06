@@ -2,3 +2,8 @@
   get_url:
     url:  http://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.zip
     dest: /opt
+    
+#- name: Download pacchetto wildfly versione 10
+#  get_url:
+#    url:  http://download.jboss.org/wildfly/10.0.0.Final/wildfly-10.0.0.Final.zip
+#    dest: /opt
