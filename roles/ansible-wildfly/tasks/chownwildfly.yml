@@ -1,5 +1,5 @@
 - file:
-    path: /opt/wildfly-11.0.0.Final
+    path: /opt/wildfly-{{ wildfly_version }}.Final
     owner: wildfly
     group: wildfly
     recurse: yes
