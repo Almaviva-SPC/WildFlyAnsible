@@ -1,11 +1,11 @@
 - name: Configurazione host-slave.xml
   template:
     src: host-slave.file
-    dest: /opt/wildfly-11.0.0.Final/domain/configuration/host-slave.xml
+    dest: /opt/wildfly-{{ wildfly_version }}.Final/domain/configuration/host-slave.xml
     owner: wildfly
     group: wildfly
 - replace:
-    path: /opt/wildfly-11.0.0.Final/domain/configuration/host-slave.xml
+    path: /opt/wildfly-{{ wildfly_version }}.Final/domain/configuration/host-slave.xml
     regexp: "masterip"
     replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
   with_items:
@@ -28,7 +28,7 @@
 - name: init.d
   template:
     src: init.d
-    dest: /opt/wildfly-11.0.0.Final/bin/init.d/wildfly-init-redhat.sh
+    dest: /opt/wildfly-{{ wildfly_version }}.Final/bin/init.d/wildfly-init-redhat.sh
     owner: wildfly
     group: wildfly
 - name: reload daemon systemctl
