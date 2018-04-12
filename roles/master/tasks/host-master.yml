@@ -13,7 +13,7 @@
 #Host config
 - name: Configurazione host.xml
   template:
-    src: host.file
+    src: host-{{ wildfly_version }}.file
     dest: /opt/wildfly-{{ wildfly_version }}.Final/domain/configuration/host.xml
     owner: wildfly
     group: wildfly
