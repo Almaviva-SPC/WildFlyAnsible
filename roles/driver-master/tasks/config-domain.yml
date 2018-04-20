@@ -1,5 +1,23 @@
-- name: registrazione driver postgresql
+- name: registrazione driver postgresql profilo full-ha
   command:  /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full-ha/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=postgresql-42,driver-module-name=postgresql-42.2.1.jdbc)"
 
-- name: registrazione driver oracle
+- name: registrazione driver oracle profilo full-ha
   command: /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full-ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
+
+- name: registrazione driver postgresql profilo ha
+  command:  /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=ha/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=postgresql-42,driver-module-name=postgresql-42.2.1.jdbc)"
+  
+- name: registrazione driver oracle profilo ha
+  command: /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=ha/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
+  
+- name: registrazione driver postgresql profilo full
+  command:  /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=postgresql-42,driver-module-name=postgresql-42.2.1.jdbc)"
+  
+- name: registrazione driver oracle profilo full
+  command: /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=full/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
+  
+- name: registrazione driver postgresql profilo default
+  command:  /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=default/subsystem=datasources/jdbc-driver=postgresql-42:add(driver-name=postgresql-42,driver-module-name=postgresql-42.2.1.jdbc)"
+  
+- name: registrazione driver oracle profilo default
+  command: /opt/wildfly-{{ wildfly_version }}.Final/bin/jboss-cli.sh --connect --controller={{hostvars[inventory_hostname]['ansible_default_ipv4']['address']}} --command="/profile=default/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=oracle.jdbc)"
