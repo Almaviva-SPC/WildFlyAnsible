@@ -9,7 +9,7 @@
         <security-realms>
             <security-realm name="ManagementRealm">
                 <server-identities>
-                    {{ hostvars[ master_node ]['wildfly_secret_set'] }}
+                    {{ hostvars[ 'master_node' ]['wildfly_secret_set'] }}
                 </server-identities>
                 <authentication>
                     <local default-user="$local" skip-group-loading="true"/>
