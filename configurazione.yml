@@ -16,6 +16,6 @@
     - slave
     - driver
 - hosts: master,slave
-  become: ture
+  become: true
   roles:
     - finalstep
