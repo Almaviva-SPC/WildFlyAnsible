@@ -36,5 +36,6 @@
     dest: /opt/wildfly-{{ wildfly_version }}.Final/bin/init.d/wildfly-init-redhat.sh
     owner: wildfly
     group: wildfly
+    
 - name: reload daemon systemctl
   systemd: daemon_reload=yes
