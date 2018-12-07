@@ -7,9 +7,9 @@
 - replace:
     path: /opt/wildfly-{{ wildfly_version }}.Final/domain/configuration/host-slave.xml
     regexp: "masterip"
-    replace: "{{hostvars[item]['ansible_default_ipv4']['address']}}"
-  with_items:
-    - "{{ groups['master'] }}"
+    replace: "{{hostvars['ansible1'].ansible_default_ipv4.address}}"
+#  with_items:
+#    - "{{ groups['master'] }}"
 #widlfly.conf
 - name: wildfly.conf
   template:
