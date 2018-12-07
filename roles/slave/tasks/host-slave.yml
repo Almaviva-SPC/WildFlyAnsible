@@ -4,12 +4,15 @@
     dest: /opt/wildfly-{{ wildfly_version }}.Final/domain/configuration/host-slave.xml
     owner: wildfly
     group: wildfly
-- replace:
+
+- name: sostituzione ip del master
+  replace:
     path: /opt/wildfly-{{ wildfly_version }}.Final/domain/configuration/host-slave.xml
     regexp: "masterip"
-    replace: "{{hostvars['ansible1'].ansible_default_ipv4.address}}"
-#  with_items:
-#    - "{{ groups['master'] }}"
+    replace: "{{hostvars[item].ansible_default_ipv4.address}}"
+  with_items:
+    - "{{ groups['master'] }}"
+    
 #widlfly.conf
 - name: wildfly.conf
   template:
@@ -17,6 +20,7 @@
     dest: /etc/default/wildfly.conf
     owner: wildfly
     group: wildfly
+    
 #wildfly.service
 - name: wildfly service
   template:
@@ -24,6 +28,7 @@
     dest: /etc/systemd/system/wildfly.service
     owner: wildfly
     group: wildfly
+    
 #file initd versione 10
 - name: init.d
   template:
