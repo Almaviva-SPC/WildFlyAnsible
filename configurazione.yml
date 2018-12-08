@@ -1,7 +1,7 @@
 - hosts: master
   become: true
   roles:
-    - oracle-java
+#    - oracle-java
     - init
     - ansible-wildfly
     - master
@@ -10,7 +10,7 @@
 - hosts: slave
   become: true
   roles:
-    - oracle-java
+#    - oracle-java
     - init
     - ansible-wildfly
     - slave
