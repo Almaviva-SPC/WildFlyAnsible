@@ -12,11 +12,11 @@ Supported Opereting system Centos 7.x 64 bit
 
 This is the list ov variables inside group_vars valid for all host
 
-ACCOUNT: admin
-PASSWORD: test
-master_node: masternode
-syncuser: syncuser ###User for remote node
-syncpassword: test ###Password for syncuser
+ACCOUNT: admin <br>
+PASSWORD: test <br>
+master_node: masternode <br>
+syncuser: syncuser ###User for remote node <br>
+syncpassword: test ###Password for syncuser <br>
 
 
 N.B. Per cambiare versione di Wildfly impostare il nome del pacchetto da scaricare nelle group_vars
